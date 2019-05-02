@@ -36,6 +36,9 @@ defmodule EventStore.Notifications.Supervisor do
 
       :ignore ->
         :ignore
+
+      {:error, :killed} ->
+        {:ok, :global.whereis_name(__MODULE__)}
     end
   end
 
